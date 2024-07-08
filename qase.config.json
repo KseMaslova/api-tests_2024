@@ -1,0 +1,36 @@
+{
+	"mode": "testops",
+	"fallback": "report",
+	"report": {
+		"driver": "local",
+		"connection": {
+			"local": {
+				"path": "./build/qase-report",
+				"format": "json"
+			}
+		}
+	},
+	"testops": {
+		"project": "TEST",
+		"api": {
+			"token": "abe56a306adc9a3f7951fd7b38eb6e1ab1bb8498fcd71a47db869558adaece23",
+			"host": "qase.io"
+		},
+		"run": {
+			"title": "Automated test run QA",
+			"complete": true
+		},
+		"defect": false,
+		"bulk": true,
+		"chunk": 200
+	},
+	"framework": {
+		"pytest": {
+			"capture": {
+				"logs": true,
+				"http": true
+			}
+		}
+	},
+	"environment": "local"
+}
