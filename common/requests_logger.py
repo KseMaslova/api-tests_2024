@@ -1,4 +1,5 @@
 import logging
+from json import JSONDecodeError
 
 from requests import Response
 
@@ -9,7 +10,14 @@ def except_no_content(response: Response):
     try:
         return response.request.body.decode('utf-8')
     except AttributeError:
-        return 'no content in request'
+        return '{no content in request}'
+
+
+def response_404(response: Response):
+    try:
+        return response.json()
+    except JSONDecodeError:
+        return '{no content in request}'
 
 
 def requests_logger(response: Response):
@@ -17,4 +25,4 @@ def requests_logger(response: Response):
     logger.info(f"Request: url: {response.request.url}, "
                 f"method: {response.request.method}, body: {except_no_content(response)}")
     # response
-    logger.info(f"Response: status code: {response.status_code}, body: {response.json()}")
+    logger.info(f"Response: status code: {response.status_code}, body: {response_404(response)}")

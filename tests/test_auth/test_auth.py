@@ -1,10 +1,7 @@
 import pytest
-import requests
 
 from conftest import url
 from fixtures.auth.api import Auth
-
-URL = "https://restful-booker.herokuapp.com/auth"
 
 
 class TestAuth:
