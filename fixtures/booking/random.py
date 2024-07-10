@@ -10,6 +10,11 @@ def random_create() -> dict:
             "depositpaid": random.choice([True, False]),
             "bookingdates": {
                 "checkin": fake.date_this_decade().isoformat(),
-                "checkout": fake.date_between_dates(date_start=fake.date_this_decade(), date_end=fake.future_date(end_date="+1y")).isoformat()
+                "checkout": fake.date_between_dates(date_start=fake.date_this_decade(),
+                                                    date_end=fake.future_date(end_date="+1y")).isoformat()
             },
             "additionalneeds": fake.word()}
+
+
+def random_get():
+    return f"https://restful-booker.herokuapp.com/booking/{random.randint(1, 1000)}"

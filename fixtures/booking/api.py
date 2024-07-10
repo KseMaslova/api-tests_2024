@@ -17,3 +17,18 @@ class Create:
         #schema.validate(res.json())
         requests_logger(res)
         return res
+
+class Get:
+    def __init__(self, url):
+        self.client = Client()
+        self.url = url
+
+    _POST_GET = 'booking/:id'
+
+    def get(self, body=None):
+        res = self.client.request('GET',
+                                  self.url,
+                                  json=body)
+        #schema.validate(res.json())
+        requests_logger(res)
+        return res
