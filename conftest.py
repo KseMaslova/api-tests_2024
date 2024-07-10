@@ -6,17 +6,15 @@ from faker import Faker
 
 logger = logging.getLogger('api')
 
-URL = "https://restful-booker.herokuapp.com/auth"
+URL = "https://restful-booker.herokuapp.com"
 
 
-#faker = Faker()
+#gitfaker = Faker()
 
 def pytest_addoption(parser):
-    parser.addoption("--api-url", action="store", default="https://restful-booker.herokuapp.com/auth", help="URL для "
+    parser.addoption("--api-url", action="store", default="https://restful-booker.herokuapp.com", help="URL для "
                                                                                                             "API")
-#def pytest_addoption(parser):
-    #parser.addoption( action="store", default='https://restful-booker.herokuapp.com/auth',
-                     #help="API url")
+
 
 
 @pytest.fixture(scope='session')
@@ -26,8 +24,8 @@ def url(request):
     return url
 
 #@pytest.fixture
-#def regsiter() -> dict:
-#body = {"username": faker.email(), "password": faker.password()}
-#response = requests.post(url=f'{URL}/register', json=body)
-#assert response.status_code == 201
+#def create() -> dict:
+#body = {"firstname": faker.first_name(), "lastname": faker.last_name(), "totalprice": , "depositpaid": , ""}
+#response = requests.post(url=f'{URL}/booking', json=body)
+#assert response.status_code == 200
 #return body
