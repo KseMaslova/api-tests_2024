@@ -25,7 +25,7 @@ class TestAuth:
         """
         body = {"username": username, "password": "password123"}
         auth = Auth(url=url)
-        response = auth.auth(body=body)
+        response = auth.auth_1(body=body)
         assert response.status_code == 400
 
     @pytest.mark.parametrize('password', ['test@test', 'password111', 'test', 1234, True])
@@ -37,7 +37,7 @@ class TestAuth:
         """
         body = {"username": "admin", "password": password}
         auth = Auth(url=url)
-        response = auth.auth(body=body)
+        response = auth.auth_1(body=body)
         assert response.status_code == 400
 
     def test_auth_empty_username(self, url, username=None):
@@ -48,7 +48,7 @@ class TestAuth:
         """
         body = {"username": username, "password": "password123"}
         auth = Auth(url=url)
-        response = auth.auth(body=body)
+        response = auth.auth_1(body=body)
         assert response.status_code == 400
 
     def test_auth_empty_password(self, url, password=None):
@@ -59,5 +59,5 @@ class TestAuth:
         """
         body = {"username": "admin", "password": password}
         auth = Auth(url=url)
-        response = auth.auth(body=body)
+        response = auth.auth_1(body=body)
         assert response.status_code == 400

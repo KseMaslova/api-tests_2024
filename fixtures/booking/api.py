@@ -1,5 +1,4 @@
 from common.requests_logger import requests_logger
-#from fixtures.booking.schema import CREATE_SCHEMA
 from fixtures.http_client import Client
 
 
@@ -10,13 +9,13 @@ class Create:
 
     _POST_CREATE = 'booking'
 
-    def create(self, body: dict,):
+    def create(self, body: dict):
         res = self.client.request('POST',
                                   f'{self.url}/{self._POST_CREATE}',
                                   json=body)
-        #schema.validate(res.json())
         requests_logger(res)
         return res
+
 
 class Get:
     def __init__(self, url):
@@ -29,6 +28,5 @@ class Get:
         res = self.client.request('GET',
                                   self.url,
                                   json=body)
-        #schema.validate(res.json())
         requests_logger(res)
         return res

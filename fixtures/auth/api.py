@@ -16,3 +16,12 @@ class Auth:
         schema.validate(res.json())
         requests_logger(res)
         return res
+
+
+    def auth_1(self, body: dict):
+        res = self.client.request('POST',
+                                  f'{self.url}/{self._POST_AUTH}',
+                                  json=body)
+        requests_logger(res)
+        return res
+
