@@ -43,7 +43,7 @@ class TestAuth:
     def test_auth_empty_username(self, url, username=None):
         """
         1. Try to auth with empty username
-        2. Check that status code 200
+        2. Check that status code 400
         3. Check response
         """
         body = {"username": username, "password": "password123"}
@@ -54,7 +54,7 @@ class TestAuth:
     def test_auth_empty_password(self, url, password=None):
         """
         1. Try to auth with empty password
-        2. Check that status code 200
+        2. Check that status code 400
         3. Check response
         """
         body = {"username": "admin", "password": password}
