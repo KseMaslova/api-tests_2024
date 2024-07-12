@@ -17,5 +17,4 @@ def random_create() -> dict:
 
 
 def random_get():
-    # return f"https://restful-booker.herokuapp.com/booking/{random.randint(1, 1000)}"
     return random.randint(1, 1000)
