@@ -9,7 +9,7 @@ class Create:
 
     _POST_CREATE = 'booking'
 
-    def create(self, body: dict):
+    def create_booking(self, body: dict):
         res = self.client.request('POST',
                                   f'{self.url}/{self._POST_CREATE}',
                                   json=body)
@@ -22,11 +22,9 @@ class Get:
         self.client = Client()
         self.url = url
 
-    _POST_GET = 'booking/:id'
-
-    def get(self, body=None):
+    def get_booking(self, id, body=None):
         res = self.client.request('GET',
-                                  self.url,
+                                  f'{self.url}/{id}',
                                   json=body)
         requests_logger(res)
         return res
